@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class Identifier{
+public static void main(String args[]) {
+int i,firstoct;
+System.out.print("Enter the ip address:");
+Scanner sc=new Scanner(System.in);
+String input=sc.nextLine();
+String[] arrin = input.split("\\.",4);
+firstoct=Integer.parseInt(arrin[0]);
+if(firstoct >= 1 && firstoct <= 127)
+	System.out.println("class A");
+else if(firstoct >= 128 && firstoct <= 191)
+	System.out.println("class B");
+else if(firstoct >= 192 && firstoct <= 223)
+	System.out.println("class C");
+else if(firstoct >= 224 && firstoct <= 239)
+	System.out.println("class D");
+else if(firstoct >= 240 && firstoct <= 255)
+	System.out.println("class E");
+else
+	System.out.println("Wrong choice");
+}
+}
+
