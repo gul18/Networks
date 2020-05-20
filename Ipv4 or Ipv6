@@ -1,0 +1,29 @@
+import javax.swing.*;
+import com.google.common.net.InetAddresses;
+public class IdentifyClassOfIpAddress
+{
+public static void main(String args[]){
+char ch='y';
+do
+{
+String ipAddress;
+try
+{
+ipAddress=JOptionPane.showInputDialog("Enter Ip Address:");
+int addressLength = InetAddresses.forString(ipAddress).getAddress().length;
+if(addressLength==4)
+JOptionPane.showMessageDialog(null,"Ip Address belongs to IPv4");
+else if(addressLength==16)
+JOptionPane.showMessageDialog(null,"Ip Address belongs to IPv6");
+else
+JOptionPane.showMessageDialog(null,"Please enter correct IP Address");
+}
+catch(Exception e)
+{
+JOptionPane.showMessageDialog(null,""+e);
+}
+String str1 = JOptionPane.showInputDialog("Do you want to continue?");
+ch=str1.charAt(0);
+} while(ch=='y'||ch=='Y');
+}
+}
