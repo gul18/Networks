@@ -1,1 +1,53 @@
+package ipaddressclassdetection;
+import javax.swing.*;
+import java.util.Scanner;
+public class IpAddressClassDetection {
+    public static void main(String[] args) {
+        char ch = 'y';
+        do{
+        Scanner input = new Scanner(System. in);
+        String str = JOptionPane.showInputDialog("Enter IP Address:");
+        String arr[] = str.split("\\.");
+        int size = arr.length;
+        int proceed = 1;
+        for(int i=0;i<size;++i)
+        {
+            if(Integer.parseInt(arr[i])>255)
+            {
+                proceed = 0;
+            }
+        }
+        if(proceed == 1)
+        {
+        if(size==4)
+        {
+        int num = Integer.parseInt(arr[0]);
+        if(num>=0 && num<=127)
+            JOptionPane.showMessageDialog(null, "This IP Address belong to Class A");
+        else if(num>=128 && num<=191)
+            JOptionPane.showMessageDialog(null, "This IP Address belong to Class B");
+        else if(num>=192 && num<=223)
+            JOptionPane.showMessageDialog(null, "This IP Address belong to Class C");
+        else if(num>=224 && num<=239)
+            JOptionPane.showMessageDialog(null, "This IP Address belong to Class D");
+        else if(num>=240 && num<=255)
+            JOptionPane.showMessageDialog(null, "This IP Address belong to Class E");
+        else
+            JOptionPane.showMessageDialog(null, "Enter a valid IP Address!");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Enter a valid IP Address!");
+        }
+    }
+        else 
+        {
+          JOptionPane.showMessageDialog(null, "Enter a valid IP Address!");  
+        }
+        String str1 = JOptionPane.showInputDialog("Do you want to continue?");
+        ch = str1.charAt(0);
+        }while(ch=='y'|| ch=='Y');
+}
+}
+
 
